@@ -6,9 +6,9 @@ import {
     ButtonExtended,
     ButtonMain,
     ReversedButton,
-    ButtonThemed,
-    ButtonWave
+    ButtonThemed
 } from "./Buttons";
+import PlaystarzButton from './PlaystarzButton';
 import { Link, StyledLink } from './Link';
 import { Input, PasswordInput } from "./Inputs";
 import { Thing, GlobalStyle } from './Thing';
@@ -32,5 +32,5 @@ export {
     GlobalStyle,
     rotate,
     Preloader,
-    ButtonWave
+    PlaystarzButton
 };

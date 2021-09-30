@@ -16,7 +16,7 @@ import {
   GlobalStyle,
   PasswordInput,
   Preloader,
-  ButtonWave,
+  PlaystarzButton
 } from './components';
 
 const theme = {
@@ -81,9 +81,26 @@ const App = () => {
 
           </ThemeProvider>
 
-          <ButtonWave>
-            Button Wave
-          </ButtonWave>
+          <PlaystarzButton>
+            Buy Cripto
+          </PlaystarzButton>
+
+          <PlaystarzButton  type='secondary'>
+            Buy Cripto
+          </PlaystarzButton>
+
+          <PlaystarzButton  type='danger'>
+            Buy Cripto
+          </PlaystarzButton>
+
+          <PlaystarzButton type='dark'>
+            Buy Cripto
+          </PlaystarzButton>
+
+          <PlaystarzButton type='green' >
+            Buy Cripto
+          </PlaystarzButton>
+
         </section>
 
         <section>
