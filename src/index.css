@@ -8,10 +8,14 @@ body {
 }
 
 body { 
-  background-color: #efefef;
+  background-color: #ffd6d6;
 }
 
 
 a {
   text-decoration: none;
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
 }

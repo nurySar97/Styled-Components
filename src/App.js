@@ -16,6 +16,7 @@ import {
   GlobalStyle,
   PasswordInput,
   Preloader,
+  ButtonWave,
 } from './components';
 
 const theme = {
@@ -80,6 +81,9 @@ const App = () => {
 
           </ThemeProvider>
 
+          <ButtonWave>
+            Button Wave
+          </ButtonWave>
         </section>
 
         <section>

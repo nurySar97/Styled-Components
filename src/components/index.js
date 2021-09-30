@@ -1,7 +1,14 @@
 import Container from "./Container";
 import Title from "./Title";
 import Wrapper from "./Wrapper";
-import { Button, ButtonExtended, ButtonMain, ReversedButton,ButtonThemed } from "./Buttons";
+import {
+    Button,
+    ButtonExtended,
+    ButtonMain,
+    ReversedButton,
+    ButtonThemed,
+    ButtonWave
+} from "./Buttons";
 import { Link, StyledLink } from './Link';
 import { Input, PasswordInput } from "./Inputs";
 import { Thing, GlobalStyle } from './Thing';
@@ -25,4 +32,5 @@ export {
     GlobalStyle,
     rotate,
     Preloader,
+    ButtonWave
 };
