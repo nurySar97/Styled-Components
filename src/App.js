@@ -1,5 +1,5 @@
-import React from 'react'
-import { ThemeProvider } from 'styled-components'
+import React, { useState } from "react";
+import { ThemeProvider } from "styled-components";
 import {
   Container,
   Title,
@@ -16,21 +16,43 @@ import {
   GlobalStyle,
   PasswordInput,
   Preloader,
-  PlaystarzButton
-} from './components'
-import PlaystarzFormItem from './components/PlaystarzFormItem'
-
-const theme = {
-  bc: '#fff',
-  fc: '#007bff'
-}
+  PlaystarzButton,
+} from "./components";
+import PlaystarzFormItem from "./components/PlaystarzFormItem";
+const theme_second = {
+  bc: "#fff",
+  fc: "#007bff",
+};
 
 const invertTheme = ({ fc, bc }) => ({
   bc: fc,
-  fc: bc
-})
+  fc: bc,
+});
+
+const themeHandler = (theme) => {
+  const _theme = {
+    dark: {
+      fc: "#fff",
+      bc: "#000",
+    },
+    light: {
+      fc: "#000",
+      bc: "#fff",
+    },
+  };
+  return _theme[theme];
+};
 
 const App = () => {
+  const [theme, setTheme] = useState("light");
+
+  const onToggleSetTheme = () => {
+    if (theme === "dark") return setTheme("light");
+    setTheme("dark");
+  };
+
+  const currentTheme = themeHandler(theme)
+
   return (
     <div>
       <Container>
@@ -47,21 +69,21 @@ const App = () => {
 
           <Button primary>Button Primary</Button>
 
-          <ButtonMain onClick={alert.bind(null, 'Button Main')}>
+          <ButtonMain onClick={alert.bind(null, "Button Main")}>
             Button Main
           </ButtonMain>
 
-          <ButtonExtended onClick={alert.bind(null, 'Button Extended')}>
+          <ButtonExtended onClick={alert.bind(null, "Button Extended")}>
             Button Extended
           </ButtonExtended>
 
-          <Button as='a' href='#'>
+          <Button as="a" href="#">
             Button Link
           </Button>
 
           <ReversedButton>Button Reversed</ReversedButton>
 
-          <ThemeProvider theme={theme}>
+          <ThemeProvider theme={theme_second}>
             <ButtonThemed>Button Themed</ButtonThemed>
 
             <ThemeProvider theme={invertTheme}>
@@ -71,13 +93,13 @@ const App = () => {
 
           <PlaystarzButton>Buy Cripto</PlaystarzButton>
 
-          <PlaystarzButton type='secondary'>Buy Cripto</PlaystarzButton>
+          <PlaystarzButton type="secondary">Buy Cripto</PlaystarzButton>
 
-          <PlaystarzButton type='danger'>Buy Cripto</PlaystarzButton>
+          <PlaystarzButton type="danger">Buy Cripto</PlaystarzButton>
 
-          <PlaystarzButton type='dark'>Buy Cripto</PlaystarzButton>
+          <PlaystarzButton type="dark">Buy Cripto</PlaystarzButton>
 
-          <PlaystarzButton type='green'>Buy Cripto</PlaystarzButton>
+          <PlaystarzButton type="green">Buy Cripto</PlaystarzButton>
         </section>
 
         <section>
@@ -89,17 +111,17 @@ const App = () => {
 
         <section>
           <h2>Inputs</h2>
-          <Input defaultValue='@probablyup' type='text' />
+          <Input defaultValue="@probablyup" type="text" />
           <Input
-            defaultValue='@geelen'
-            type='text'
-            inputColor='rebeccapurple'
+            defaultValue="@geelen"
+            type="text"
+            inputColor="rebeccapurple"
           />
-          <Input placeholder='A small text input' />
-          <Input placeholder='A bigger text input' size='4rem' />
-          <PasswordInput placeholder='A bigger password input' size='2em' />
+          <Input placeholder="A small text input" />
+          <Input placeholder="A bigger text input" size="4rem" />
+          <PasswordInput placeholder="A bigger password input" size="2em" />
 
-          <form autoComplete='off'>
+          <form autoComplete="off">
             <PlaystarzFormItem />
           </form>
         </section>
@@ -108,18 +130,18 @@ const App = () => {
           <h2>Thing</h2>
           <Thing>Hello world!</Thing>
           <Thing>How ya doing?</Thing>
-          <Thing className='something'>The sun is shining...</Thing>
+          <Thing className="something">The sun is shining...</Thing>
           <div>Pretty nice day today.</div>
           <Thing>Don't you think?</Thing>
-          <div className='something-else'>
+          <div className="something-else">
             <Thing>Splendid.</Thing>
           </div>
 
           <Thing>
-            <label htmlFor='foo-button' className='something-primary'>
+            <label htmlFor="foo-button" className="something-primary">
               Mystery button
             </label>
-            <button id='foo-button'>What do I do?</button>
+            <button id="foo-button">What do I do?</button>
           </Thing>
 
           <GlobalStyle />
@@ -128,11 +150,16 @@ const App = () => {
 
         <section>
           <h2>Preloader</h2>
-          <Preloader size='150px' />
+          <Preloader size="150px" />
         </section>
+
+        <ThemeProvider theme={currentTheme}>
+          <ButtonThemed>Button Inverted Theme</ButtonThemed>
+          <ButtonThemed onClick={onToggleSetTheme}>Change Theme</ButtonThemed>
+        </ThemeProvider>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
